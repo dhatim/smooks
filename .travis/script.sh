@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -ex
+
+env | sort
 
 if [ "${TRAVIS_EVENT_TYPE}" == push ] &&
        echo "${TRAVIS_TAG}" | egrep '^[0-9]+\.[0-9]+\.[0-9]+$'
