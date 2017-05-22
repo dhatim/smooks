@@ -22,7 +22,7 @@ import org.junit.Test;
 
 import org.custommonkey.xmlunit.XMLAssert;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.milyn.io.StreamUtils;
+import org.dhatim.io.StreamUtils;
 import org.xml.sax.SAXException;
 
 /**

@@ -1,7 +1,7 @@
 package example.activator;
 
-import org.milyn.container.ExecutionContext;
-import org.milyn.delivery.dom.DOMVisitAfter;
+import org.dhatim.container.ExecutionContext;
+import org.dhatim.delivery.dom.DOMVisitAfter;
 
 public class Test implements DOMVisitAfter {
 

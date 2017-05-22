@@ -25,13 +25,13 @@ import java.util.Locale;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.milyn.Smooks;
-import org.milyn.SmooksException;
-import org.milyn.container.ExecutionContext;
-import org.milyn.event.report.HtmlReportGenerator;
-import org.milyn.io.StreamUtils;
-import org.milyn.payload.StringResult;
-import org.milyn.xml.XmlUtil;
+import org.dhatim.Smooks;
+import org.dhatim.SmooksException;
+import org.dhatim.container.ExecutionContext;
+import org.dhatim.event.report.HtmlReportGenerator;
+import org.dhatim.io.StreamUtils;
+import org.dhatim.payload.StringResult;
+import org.dhatim.xml.XmlUtil;
 import org.xml.sax.SAXException;
 
 /**

@@ -15,10 +15,10 @@
 */
 package example.model;
 
-import org.milyn.javabean.DataDecoder;
-import org.milyn.javabean.DataDecodeException;
-import org.milyn.cdr.SmooksResourceConfiguration;
-import org.milyn.cdr.SmooksConfigurationException;
+import org.dhatim.javabean.DataDecoder;
+import org.dhatim.javabean.DataDecodeException;
+import org.dhatim.cdr.SmooksResourceConfiguration;
+import org.dhatim.cdr.SmooksConfigurationException;
 
 import java.util.regex.Pattern;
 import java.util.Vector;

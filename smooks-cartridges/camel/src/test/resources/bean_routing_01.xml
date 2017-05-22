@@ -8,7 +8,7 @@
 				                          http://www.milyn.org/xsd/smooks/camel-1.4.xsd http://www.milyn.org/xsd/smooks/camel-1.4.xsd">
 
     <!-- Create a new Coordinate instance for every <coord> in the source message... -->
-    <jb:bean beanId="coordinate" class="org.milyn.smooks.camel.Coordinate" createOnElement="coords/coord">
+    <jb:bean beanId="coordinate" class="org.dhatim.smooks.camel.Coordinate" createOnElement="coords/coord">
         <jb:value property="x" data="coords/coord/@x" />
         <jb:value property="y" data="coords/coord/@y" />
     </jb:bean>

@@ -1,2 +1,2 @@
-org.milyn.javabean.decoders.FreeMarkerTemplateDecoder
-org.milyn.javabean.decoders.MVELExpressionEvaluatorDecoder
+org.dhatim.javabean.decoders.FreeMarkerTemplateDecoder
+org.dhatim.javabean.decoders.MVELExpressionEvaluatorDecoder

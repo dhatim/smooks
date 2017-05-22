@@ -16,9 +16,9 @@
 
 package example;
 
-import org.milyn.javabean.dynamic.BeanMetadata;
-import org.milyn.javabean.dynamic.Model;
-import org.milyn.javabean.dynamic.ModelBuilder;
+import org.dhatim.javabean.dynamic.BeanMetadata;
+import org.dhatim.javabean.dynamic.Model;
+import org.dhatim.javabean.dynamic.ModelBuilder;
 import org.smooks.model.core.SmooksModel;
 import org.smooks.model.javabean.Bean;
 import org.xml.sax.SAXException;

@@ -15,7 +15,7 @@
     <bundle>mvn:org.objectweb.asm/com.springsource.org.objectweb.asm.util/${spring.objectweb.version}</bundle>
     <bundle>mvn:commons-lang/commons-lang/${commons_lang.version}</bundle>
     <bundle>mvn:org.ow2.bundles/ow2-bundles-externals-opencsv/${ow2.opencsv.version}</bundle>
-    <bundle>mvn:org.milyn/milyn-smooks-all/${project.version}</bundle>
+    <bundle>mvn:org/dhatim/milyn-smooks-all/${project.version}</bundle>
   </feature>
 
 </features>

@@ -17,10 +17,10 @@
 package org.drools.examples.broker.events;
 
 import org.drools.examples.broker.model.StockTick;
-import org.milyn.Smooks;
-import org.milyn.javabean.lifecycle.BeanContextLifecycleEvent;
-import org.milyn.javabean.lifecycle.BeanContextLifecycleObserver;
-import org.milyn.javabean.lifecycle.BeanLifecycle;
+import org.dhatim.Smooks;
+import org.dhatim.javabean.lifecycle.BeanContextLifecycleEvent;
+import org.dhatim.javabean.lifecycle.BeanContextLifecycleObserver;
+import org.dhatim.javabean.lifecycle.BeanLifecycle;
 import org.xml.sax.SAXException;
 
 import javax.xml.transform.stream.StreamSource;

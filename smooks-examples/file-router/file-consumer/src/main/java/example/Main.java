@@ -15,7 +15,7 @@
 */
 package example;
 
-import org.milyn.io.FileUtils;
+import org.dhatim.io.FileUtils;
 
 import java.io.File;
 import java.io.FileFilter;

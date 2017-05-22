@@ -1,4 +1,4 @@
-org.milyn.templating.freemarker.FreeMarkerContentHandlerFactory
-org.milyn.templating.stringtemplate.v4.StringTemplateContentHandlerFactory
-org.milyn.templating.stringtemplate.StringTemplateContentHandlerFactory
-org.milyn.templating.xslt.XslContentHandlerFactory
+org.dhatim.templating.freemarker.FreeMarkerContentHandlerFactory
+org.dhatim.templating.stringtemplate.v4.StringTemplateContentHandlerFactory
+org.dhatim.templating.stringtemplate.StringTemplateContentHandlerFactory
+org.dhatim.templating.xslt.XslContentHandlerFactory

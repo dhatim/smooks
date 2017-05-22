@@ -22,8 +22,8 @@ import java.io.IOException;
 import java.util.List;
 
 import org.xml.sax.SAXException;
-import org.milyn.validation.ValidationResult;
-import org.milyn.validation.OnFailResult;
+import org.dhatim.validation.ValidationResult;
+import org.dhatim.validation.OnFailResult;
 
 /**
  * @author <a href="mailto:tom.fennelly@jboss.com">tom.fennelly@jboss.com</a>

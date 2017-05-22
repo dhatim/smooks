@@ -6,10 +6,10 @@ import java.io.IOException;
 
 import javax.xml.transform.stream.StreamSource;
 
-import org.milyn.Smooks;
-import org.milyn.container.ExecutionContext;
-import org.milyn.io.StreamUtils;
-import org.milyn.payload.JavaResult;
+import org.dhatim.Smooks;
+import org.dhatim.container.ExecutionContext;
+import org.dhatim.io.StreamUtils;
+import org.dhatim.payload.JavaResult;
 
 import example.model.Order;
 import example.model.OrderItem;

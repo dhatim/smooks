@@ -17,9 +17,9 @@ package example.dao;
 
 import javax.persistence.EntityManager;
 
-import org.milyn.scribe.annotation.Dao;
-import org.milyn.scribe.annotation.Lookup;
-import org.milyn.scribe.annotation.Param;
+import org.dhatim.scribe.annotation.Dao;
+import org.dhatim.scribe.annotation.Lookup;
+import org.dhatim.scribe.annotation.Param;
 
 import example.jpa.entity.Customer;
 

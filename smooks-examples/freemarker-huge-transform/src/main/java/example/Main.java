@@ -15,8 +15,8 @@
 */
 package example;
 
-import org.milyn.Smooks;
-import org.milyn.SmooksException;
+import org.dhatim.Smooks;
+import org.dhatim.SmooksException;
 import org.xml.sax.SAXException;
 
 import javax.xml.transform.stream.StreamResult;

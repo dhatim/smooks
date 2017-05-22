@@ -32,11 +32,11 @@
     <!-- ================ -->
     <!-- Limit categories -->
 
-    <category name="org.milyn">
+    <category name="org.dhatim">
         <priority value="ERROR"/>
     </category>
 
-    <category name="org.milyn.javabean">
+    <category name="org.dhatim.javabean">
         <priority value="ERROR"/>
     </category>
 

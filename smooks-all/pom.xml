@@ -19,7 +19,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.milyn</groupId>
+        <groupId>org.dhatim</groupId>
         <artifactId>testres</artifactId>
 	    <version>1.7.1-SNAPSHOT</version>
         <relativePath>../testres/pom.xml</relativePath>
@@ -32,79 +32,79 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-commons</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-edisax-parser</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-calc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-camel</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-csv</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-edi</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-fixed-length</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-javabean</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-json</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-misc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-persistence</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-routing</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-rules</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-scripting</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-templating</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-validation</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-yaml</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-scribe-core</artifactId>
             <exclusions>
                <exclusion>
@@ -114,19 +114,19 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-scribe-hibernate</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-scribe-ibatis</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-scribe-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-flatfile</artifactId>
         </dependency>
         <dependency>
@@ -307,12 +307,12 @@
                 </executions>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>org.milyn.smooks.osgi</Bundle-SymbolicName>
+                        <Bundle-SymbolicName>org.dhatim.smooks.osgi</Bundle-SymbolicName>
                         <Bundle-Name>Smooks OSGi</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>org.milyn.SmooksActivator</Bundle-Activator>
+                        <Bundle-Activator>org.dhatim.SmooksActivator</Bundle-Activator>
                         <Export-Package>
-                            org.milyn.*;-split-package:=merge-first;version="${project.version}",
+                            org.dhatim.*;-split-package:=merge-first;version="${project.version}",
                             META-INF.xsd.smooks,
                             META-INF.xsd.smooks.*;-split-package:=merge-first,
                             !META-INF.services.*,

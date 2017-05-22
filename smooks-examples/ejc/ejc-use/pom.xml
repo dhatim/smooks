@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.milyn</groupId>
+        <groupId>org.dhatim</groupId>
         <artifactId>smooks-examples-parent</artifactId>
 	<version>1.7.1-SNAPSHOT</version>
         <relativePath>../../parent/pom.xml</relativePath>
@@ -15,19 +15,19 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-example-ejc-model-gen</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-edi</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-javabean</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-ejc</artifactId>
         </dependency>
     </dependencies>

@@ -15,10 +15,10 @@
 */
 package example;
 
-import org.milyn.delivery.dom.DOMElementVisitor;
-import org.milyn.container.ExecutionContext;
-import org.milyn.cdr.annotation.ConfigParam;
-import org.milyn.xml.DomUtils;
+import org.dhatim.delivery.dom.DOMElementVisitor;
+import org.dhatim.container.ExecutionContext;
+import org.dhatim.cdr.annotation.ConfigParam;
+import org.dhatim.xml.DomUtils;
 import org.w3c.dom.Element;
 
 /**

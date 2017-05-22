@@ -15,10 +15,10 @@
 */
 package example;
 
-import org.milyn.*;
-import org.milyn.container.*;
-import org.milyn.event.report.*;
-import org.milyn.io.*;
+import org.dhatim.*;
+import org.dhatim.container.*;
+import org.dhatim.event.report.*;
+import org.dhatim.io.*;
 import org.xml.sax.*;
 
 import javax.xml.transform.stream.*;
@@ -40,12 +40,12 @@ public class Main {
         smooks = new Smooks("smooks-config.xml");
     }
 
-    protected org.milyn.payload.JavaResult runSmooksTransform(ExecutionContext executionContext) throws IOException, SAXException, SmooksException {
+    protected org.dhatim.payload.JavaResult runSmooksTransform(ExecutionContext executionContext) throws IOException, SAXException, SmooksException {
     	try {
             Locale defaultLocale = Locale.getDefault();
             Locale.setDefault(new Locale("en", "IE"));
 
-            org.milyn.payload.JavaResult javaResult = new org.milyn.payload.JavaResult();
+            org.dhatim.payload.JavaResult javaResult = new org.dhatim.payload.JavaResult();
 
             // Configure the execution context to generate a report...
             executionContext.setEventListener(new HtmlReportGenerator("target/report/report.html"));
@@ -70,7 +70,7 @@ public class Main {
 
         Main smooksMain = new Main();
         ExecutionContext executionContext = smooksMain.smooks.createExecutionContext();
-        org.milyn.payload.JavaResult result = smooksMain.runSmooksTransform(executionContext);
+        org.dhatim.payload.JavaResult result = smooksMain.runSmooksTransform(executionContext);
 
 
         System.out.println("\n==============EDI as Java Object Graph=============");
@@ -99,7 +99,7 @@ public class Main {
         System.out.println("\n");
     }
 
-    public org.milyn.payload.JavaResult runSmooksTransform() throws IOException, SAXException {
+    public org.dhatim.payload.JavaResult runSmooksTransform() throws IOException, SAXException {
         ExecutionContext executionContext = smooks.createExecutionContext();
         return runSmooksTransform(executionContext);
     }

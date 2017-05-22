@@ -16,10 +16,10 @@
 
 package example;
 
-import org.milyn.SmooksException;
-import org.milyn.javabean.binding.xml.XMLBinding;
-import org.milyn.io.StreamUtils;
-import org.milyn.payload.StringSource;
+import org.dhatim.SmooksException;
+import org.dhatim.javabean.binding.xml.XMLBinding;
+import org.dhatim.io.StreamUtils;
+import org.dhatim.payload.StringSource;
 import org.xml.sax.SAXException;
 
 import example.model.Order;

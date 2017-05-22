@@ -21,10 +21,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import org.milyn.Smooks;
-import org.milyn.StreamFilterType;
-import org.milyn.FilterSettings;
-import org.milyn.container.ExecutionContext;
+import org.dhatim.Smooks;
+import org.dhatim.StreamFilterType;
+import org.dhatim.FilterSettings;
+import org.dhatim.container.ExecutionContext;
 import org.xml.sax.SAXException;
 
 import javax.xml.transform.stream.StreamSource;

@@ -17,8 +17,8 @@ package example.dao;
 
 import javax.persistence.EntityManager;
 
-import org.milyn.scribe.annotation.Dao;
-import org.milyn.scribe.annotation.Insert;
+import org.dhatim.scribe.annotation.Dao;
+import org.dhatim.scribe.annotation.Insert;
 
 import example.jpa.entity.Order;
 

@@ -1,13 +1,4 @@
 language: java
-
-jdk:
-  - oraclejdk8
-  - oraclejdk7
-  - openjdk7
-
-notifications:
-  email:
-    recipients:
-      - dev@milyn.codehaus.org
-    on_success: [change]
-    on_failure: [always]
+jdk: oraclejdk8
+install: true
+script: . .travis/script.sh

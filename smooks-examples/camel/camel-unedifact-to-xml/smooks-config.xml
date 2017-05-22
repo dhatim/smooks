@@ -6,10 +6,10 @@
     xmlns:unedifact="http://www.milyn.org/xsd/smooks/unedifact-1.4.xsd"
     xmlns:core="http://www.milyn.org/xsd/smooks/smooks-core-1.4.xsd">
 
-    <unedifact:reader mappingModel="urn:org.milyn.edi.unedifact:d96a-mapping:1.4" ignoreNewLines="true" />
+    <unedifact:reader mappingModel="urn:org.dhatim.edi.unedifact:d96a-mapping:1.4" ignoreNewLines="true" />
 
     <core:exports>
-        <core:result type="org.milyn.payload.StringResult"/>
+        <core:result type="org.dhatim.payload.StringResult"/>
     </core:exports>
 
 </smooks-resource-list>

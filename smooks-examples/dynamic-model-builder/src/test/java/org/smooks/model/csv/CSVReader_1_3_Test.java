@@ -23,8 +23,8 @@ import static org.junit.Assert.*;
 
 import org.custommonkey.xmlunit.XMLAssert;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.milyn.javabean.dynamic.Model;
-import org.milyn.javabean.dynamic.ModelBuilder;
+import org.dhatim.javabean.dynamic.Model;
+import org.dhatim.javabean.dynamic.ModelBuilder;
 import org.smooks.model.core.SmooksModel;
 import org.xml.sax.SAXException;
 

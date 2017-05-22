@@ -11,7 +11,7 @@
 	      </layout>
 	</appender>
 
-	<logger name="org.milyn">
+	<logger name="org.dhatim">
 		<level value="DEBUG" />
 		<appender-ref ref="console"/>
 	</logger>

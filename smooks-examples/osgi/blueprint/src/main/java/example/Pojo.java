@@ -1,6 +1,6 @@
 package example;
 
-import org.milyn.Smooks;
+import org.dhatim.Smooks;
 import example.model.Order;
 
 public class Pojo

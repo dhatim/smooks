@@ -19,15 +19,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Locale;
 
-import org.milyn.Smooks;
-import org.milyn.SmooksException;
-import org.milyn.payload.StringSource;
-import org.milyn.rules.RuleEvalResult;
-import org.milyn.container.ExecutionContext;
-import org.milyn.event.report.HtmlReportGenerator;
-import org.milyn.io.StreamUtils;
-import org.milyn.validation.ValidationResult;
-import org.milyn.validation.OnFailResult;
+import org.dhatim.Smooks;
+import org.dhatim.SmooksException;
+import org.dhatim.payload.StringSource;
+import org.dhatim.rules.RuleEvalResult;
+import org.dhatim.container.ExecutionContext;
+import org.dhatim.event.report.HtmlReportGenerator;
+import org.dhatim.io.StreamUtils;
+import org.dhatim.validation.ValidationResult;
+import org.dhatim.validation.OnFailResult;
 import org.xml.sax.SAXException;
 
 /**

@@ -3,19 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-       <groupId>org.milyn</groupId>
+       <groupId>org.dhatim</groupId>
        <artifactId>testres</artifactId>
        <version>1.7.1-SNAPSHOT</version>
        <relativePath>../../../testres/pom.xml</relativePath>
     </parent>
 
-    <groupId>org.milyn</groupId>
+    <groupId>org.dhatim</groupId>
     <artifactId>milyn-smooks-javabean-perfcomp</artifactId>
     
     <dependencies>
 
         <dependency>
-            <groupId>org.milyn</groupId>
+            <groupId>org.dhatim</groupId>
             <artifactId>milyn-smooks-javabean</artifactId>
         </dependency>
 
@@ -41,7 +41,7 @@
                 <groupId>org.jibx</groupId>
                 <artifactId>jibx-maven-plugin</artifactId>
                 <configuration>
-                    <directory>src/test/java/org/milyn/jibx</directory>
+                    <directory>src/test/java/org/dhatim/jibx</directory>
                     <includes>
                         <includes>binding.xml</includes>
                     </includes>

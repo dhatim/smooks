@@ -1,2 +1,2 @@
-org.milyn.javabean.factory.BasicFactoryDefinitionParser
-org.milyn.javabean.factory.MVELFactoryDefinitionParser
+org.dhatim.javabean.factory.BasicFactoryDefinitionParser
+org.dhatim.javabean.factory.MVELFactoryDefinitionParser
