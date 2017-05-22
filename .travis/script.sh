@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -ex
+#!/usr/bin/env bash
 
 if [ "${TRAVIS_EVENT_TYPE}" == push ] &&
        echo "${TRAVIS_TAG}" | egrep '^[0-9]+\.[0-9]+\.[0-9]+$'
@@ -7,7 +7,9 @@ then
     # a version number: proceed with release
     echo ${GPG_SECRET_KEY} | base64 --decode | gpg --import
     echo ${GPG_OWNERTRUST} | base64 --decode | gpg --import-ownertrust
+    cd smooks-parent
     mvn versions:set -DnewVersion=${TRAVIS_TAG}
+    cd ..
     mvn --batch-mode -s .travis/settings.xml -Prelease deploy
 else
     # this is a regular build
