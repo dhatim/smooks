@@ -1,4 +1,4 @@
-<env:unEdifact xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+<env:unEdifact xmlns:env="urn:org.milyn.edi.unedifact.v41">
 	<env:UNB>
 		<env:syntaxIdentifier>
 			<env:id>UNOC</env:id>
@@ -19,7 +19,7 @@
 		<env:controlRef>SE4545670</env:controlRef>
 		<env:testIndicator>1</env:testIndicator>
 	</env:UNB>
-	<env:interchangeMessage xmlns:c="urn:org.dhatim.edi.unedifact:un:d93a:common" xmlns:invoic="urn:org.dhatim.edi.unedifact:un:d93a:invoic">
+	<env:interchangeMessage xmlns:c="urn:org.milyn.edi.unedifact:un:d93a:common" xmlns:invoic="urn:org.milyn.edi.unedifact:un:d93a:invoic">
 		<env:UNH>
 			<env:messageRefNum>000001</env:messageRefNum>
 			<env:messageIdentifier>

@@ -37,13 +37,13 @@ public class ECoreGenerationTest {
 				checkCUSCAR(pkg);
 			}
 			if ("common".equals(pkg.getName())) {
-				assertEquals("Common namespace don't match", "urn:org.dhatim.edi.unedifact:un:d99a:common", pkg.getNsURI());
+				assertEquals("Common namespace don't match", "urn:org.milyn.edi.unedifact:un:d99a:common", pkg.getNsURI());
 			}
 		}
 	}
 
 	private void checkCUSCAR(EPackage pkg) {
-		assertEquals("Namespace don't match", "urn:org.dhatim.edi.unedifact:un:d99a:cuscar", pkg.getNsURI());
+		assertEquals("Namespace don't match", "urn:org.milyn.edi.unedifact:un:d99a:cuscar", pkg.getNsURI());
 		EClass clazz = (EClass) pkg.getEClassifier("CUSCAR");
 		assertNotNull(clazz);
 		assertEquals(13, clazz.getEStructuralFeatures().size());

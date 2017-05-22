@@ -19,7 +19,7 @@
                       xmlns:unedifact="http://www.milyn.org/xsd/smooks/unedifact-1.5.xsd"
                       xmlns:frag="http://www.milyn.org/xsd/smooks/fragment-routing-1.4.xsd">
 
-    <unedifact:reader mappingModel="urn:org.dhatim.edi.unedifact:d03b-mapping:*" />
+    <unedifact:reader mappingModel="urn:org.milyn.edi.unedifact:d03b-mapping:*" />
 
     <frag:serialize fragment="interchangeMessage/PAXLST" bindTo="PAXLST_frag" retain="true" />
 

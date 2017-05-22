@@ -1,4 +1,4 @@
-<env:unEdifact xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+<env:unEdifact xmlns:env="urn:org.milyn.edi.unedifact.v41">
 	<env:UNB>
 		<env:syntaxIdentifier>
 			<env:id>UNOB</env:id>
@@ -18,7 +18,7 @@
 		</env:dateTime>
 		<env:controlRef>117487</env:controlRef>
 	</env:UNB>
-	<env:interchangeMessage xmlns:c="urn:org.dhatim.edi.unedifact:un:d93a:common" xmlns:orders="urn:org.dhatim.edi.unedifact:un:d93a:orders">
+	<env:interchangeMessage xmlns:c="urn:org.milyn.edi.unedifact:un:d93a:common" xmlns:orders="urn:org.milyn.edi.unedifact:un:d93a:orders">
 		<env:UNH>
 			<env:messageRefNum>144596</env:messageRefNum>
 			<env:messageIdentifier>
@@ -146,7 +146,7 @@
 			<env:messageRefNum>144596</env:messageRefNum>
 		</env:UNT>
 	</env:interchangeMessage>
-	<env:interchangeMessage xmlns:c="urn:org.dhatim.edi.unedifact:un:d93a:common" xmlns:orders="urn:org.dhatim.edi.unedifact:un:d93a:orders">
+	<env:interchangeMessage xmlns:c="urn:org.milyn.edi.unedifact:un:d93a:common" xmlns:orders="urn:org.milyn.edi.unedifact:un:d93a:orders">
 		<env:UNH>
 			<env:messageRefNum>144597</env:messageRefNum>
 			<env:messageIdentifier>
@@ -568,7 +568,7 @@
 			<env:messageRefNum>144597</env:messageRefNum>
 		</env:UNT>
 	</env:interchangeMessage>
-	<env:interchangeMessage xmlns:c="urn:org.dhatim.edi.unedifact:un:d93a:common" xmlns:orders="urn:org.dhatim.edi.unedifact:un:d93a:orders">
+	<env:interchangeMessage xmlns:c="urn:org.milyn.edi.unedifact:un:d93a:common" xmlns:orders="urn:org.milyn.edi.unedifact:un:d93a:orders">
 		<env:UNH>
 			<env:messageRefNum>144598</env:messageRefNum>
 			<env:messageIdentifier>

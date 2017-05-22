@@ -58,7 +58,7 @@ public class ConvertBuildinSegmentsTest {
 		assertNotNull("Can't find a v41-segments.xml", is);
 		Edimap edimap = EDIConfigDigester.digestConfig(is);
 		EPackage pkg = ECoreGenerator.INSTANCE.generateSinglePackage(edimap);
-		assertEquals("urn:org.dhatim.edi.unedifact.v41", pkg.getNsURI());
+		assertEquals("urn:org.milyn.edi.unedifact.v41", pkg.getNsURI());
 		assertEquals("unedifact", pkg.getNsPrefix());
 		assertEquals(21, pkg.getEClassifiers().size());
 		List<String> codz = new ArrayList<String>();

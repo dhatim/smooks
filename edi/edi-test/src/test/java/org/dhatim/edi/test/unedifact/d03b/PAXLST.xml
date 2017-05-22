@@ -1,5 +1,5 @@
-<env:unEdifact xmlns:env="urn:org.dhatim.edi.unedifact.v41">
-	<env:UNB xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+<env:unEdifact xmlns:env="urn:org.milyn.edi.unedifact.v41">
+	<env:UNB xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:syntaxIdentifier>
 			<env:id>UNOA</env:id>
 			<env:versionNum>4</env:versionNum>
@@ -19,7 +19,7 @@
 		<env:controlRef>16</env:controlRef>
 		<env:applicationRef>ACE</env:applicationRef>
 	</env:UNB>
-	<env:group xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+	<env:group xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:UNG>
 			<env:groupId>PAXLST</env:groupId>
 			<env:senderApp>
@@ -41,7 +41,7 @@
 				<env:releaseNum>03B</env:releaseNum>
 			</env:messageVersion>
 		</env:UNG>
-		<env:interchangeMessage xmlns:c="urn:org.dhatim.edi.unedifact:un:d03b:common" xmlns:paxlst="urn:org.dhatim.edi.unedifact:un:d03b:paxlst">
+		<env:interchangeMessage xmlns:c="urn:org.milyn.edi.unedifact:un:d03b:common" xmlns:paxlst="urn:org.milyn.edi.unedifact:un:d03b:paxlst">
 			<env:UNH>
 				<env:messageRefNum>PAXLST16</env:messageRefNum>
 				<env:messageIdentifier>
@@ -186,7 +186,7 @@
 			<env:groupRef>16</env:groupRef>
 		</env:UNE>
 	</env:group>
-	<env:UNZ xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+	<env:UNZ xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:controlCount>1</env:controlCount>
 		<env:controlRef>16</env:controlRef>
 	</env:UNZ>

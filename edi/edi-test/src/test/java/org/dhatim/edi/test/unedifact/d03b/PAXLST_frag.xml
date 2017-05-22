@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<paxlst:PAXLST xmlns:paxlst="urn:org.dhatim.edi.unedifact:un:d03b:paxlst"
-               xmlns:c="urn:org.dhatim.edi.unedifact:un:d03b:common" xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+<paxlst:PAXLST xmlns:paxlst="urn:org.milyn.edi.unedifact:un:d03b:paxlst"
+               xmlns:c="urn:org.milyn.edi.unedifact:un:d03b:common" xmlns:env="urn:org.milyn.edi.unedifact.v41">
     <paxlst:BGM>
         <c:C002>
             <c:e1001>10</c:e1001>

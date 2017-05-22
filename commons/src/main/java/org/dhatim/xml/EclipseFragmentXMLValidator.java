@@ -104,7 +104,7 @@ public class EclipseFragmentXMLValidator extends XsdValidator {
                             String uri = uriElement.getAttribute("uri");
 
                             if (uri.startsWith(PLATFORM_FRAGMENT)) {
-                                // URI is now something like platform:/fragment/org.dhatim.edi.unedifact.d99a-mapping/path/path/file.xsd
+                                // URI is now something like platform:/fragment/org.milyn.edi.unedifact.d99a-mapping/path/path/file.xsd
                                 // we need only /path/path/file.xsd
                                 // cut platform:/fragment/
                                 uri = uri.substring(PLATFORM_FRAGMENT.length());
@@ -127,7 +127,7 @@ public class EclipseFragmentXMLValidator extends XsdValidator {
             }
 
             // One resource we have to add manually
-            catalog.put("urn:org.dhatim.edi.unedifact.v41", "/META-INF/schema/v41-segments.xsd");
+            catalog.put("urn:org.milyn.edi.unedifact.v41", "/META-INF/schema/v41-segments.xsd");
         }
 
         public LSInput resolveResource(String type, String namespaceURI, String publicId, String systemId, String baseURI) {

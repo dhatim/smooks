@@ -37,7 +37,7 @@ public class LazyMappingsRegistry extends AbstractMappingsRegistry {
 	@Override
 	protected synchronized Map<String, EdifactModel> demandLoading(String[] nameComponents)
 			throws EDIConfigurationException, IOException, SAXException {
-		String urn = "urn:org.dhatim.edi.unedifact:" + nameComponents[1] + nameComponents[2] + "-mapping:*";
+		String urn = "urn:org.milyn.edi.unedifact:" + nameComponents[1] + nameComponents[2] + "-mapping:*";
 		Map<String, EdifactModel> result = new LinkedHashMap<String, EdifactModel>();
 		EDIUtils.loadMappingModels(urn.toLowerCase(), result, URI.create("/"));
 		return result;

@@ -14,8 +14,8 @@
   ~ http://www.gnu.org/licenses/lgpl.txt
   -->
 
-<env:unEdifact xmlns:env="urn:org.dhatim.edi.unedifact.v41">
-	<env:UNB xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+<env:unEdifact xmlns:env="urn:org.milyn.edi.unedifact.v41">
+	<env:UNB xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:syntaxIdentifier>
 			<env:id>UNOA</env:id>
 			<env:versionNum>3</env:versionNum>
@@ -34,7 +34,7 @@
 		</env:dateTime>
 		<env:controlRef>6002</env:controlRef>
 	</env:UNB>
-	<env:group xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+	<env:group xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:UNG>
 			<env:groupId>G1</env:groupId>
 			<env:senderApp>
@@ -72,7 +72,7 @@
 			<env:groupRef>groupref11111</env:groupRef>
 		</env:UNE>
 	</env:group>
-	<env:interchangeMessage xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+	<env:interchangeMessage xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:UNH>
 			<env:messageRefNum>0001</env:messageRefNum>
 			<env:messageIdentifier>
@@ -98,7 +98,7 @@
 			<env:messageRefNum>0001</env:messageRefNum>
 		</env:UNT>
 	</env:interchangeMessage>
-	<env:interchangeMessage xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+	<env:interchangeMessage xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:UNH>
 			<env:messageRefNum>0001</env:messageRefNum>
 			<env:messageIdentifier>
@@ -122,7 +122,7 @@
 			<env:messageRefNum>0001</env:messageRefNum>
 		</env:UNT>
 	</env:interchangeMessage>
-	<env:UNZ xmlns:env="urn:org.dhatim.edi.unedifact.v41">
+	<env:UNZ xmlns:env="urn:org.milyn.edi.unedifact.v41">
 		<env:controlCount>1</env:controlCount>
 		<env:controlRef>00000000000001</env:controlRef>
 	</env:UNZ>

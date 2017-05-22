@@ -24,7 +24,7 @@ import org.xml.sax.SAXException;
 public interface ControlBlockHandlerFactory {
 
     String ENVELOPE_PREFIX = "env";
-    String NAMESPACE_ROOT = "urn:org.dhatim.edi.unedifact";
+    String NAMESPACE_ROOT = "urn:org.milyn.edi.unedifact";
 
     /**
      * Get the transmission namespace.

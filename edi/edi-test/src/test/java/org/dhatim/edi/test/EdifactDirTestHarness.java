@@ -75,7 +75,7 @@ public class EdifactDirTestHarness implements UNEdifactInterchangeFactory {
 
         String zipFileName = edifactSpecFile.getName();
 
-        urn = "org.dhatim.edi.unedifact:" + zipFileName.substring(0, zipFileName.indexOf('.')) + "-mapping:1.0";
+        urn = "org.milyn.edi.unedifact:" + zipFileName.substring(0, zipFileName.indexOf('.')) + "-mapping:1.0";
         try {
             mappingModel = EdiConvertionTool.fromUnEdifactSpec(edifactSpecFile, urn, messages);
             mappingModelClassLoader = new ArchiveClassLoader(mappingModel);

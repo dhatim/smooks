@@ -74,7 +74,7 @@ public class EDISchemaEntityManager extends XMLEntityManager {
                         Element next = it.next();
                         String uri = next.getAttributeValue("uri");
                         String name = next.getAttributeValue("name");
-                        // URI is now something like platform:/fragment/org.dhatim.edi.unedifact.d99a-mapping/path/path/file.xsd
+                        // URI is now something like platform:/fragment/org.milyn.edi.unedifact.d99a-mapping/path/path/file.xsd
                         // we need only /path/path/file.xsd
                         // cut platform:/fragment/
                         uri = uri.substring(19);
@@ -92,7 +92,7 @@ public class EDISchemaEntityManager extends XMLEntityManager {
             }
         }
         // One resource we have to add manually
-        catalog.put("urn:org.dhatim.edi.unedifact.v41",
+        catalog.put("urn:org.milyn.edi.unedifact.v41",
                 "/META-INF/schema/v41-segments.xsd");
         log.debug("Loaded " + catalog.size() + " entries");
         return new EDISchemaEntityManager(catalog);
