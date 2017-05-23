@@ -10,8 +10,8 @@ then
     cd smooks-parent
     mvn versions:set -DnewVersion=${TRAVIS_TAG}
     cd ..
-    mvn --batch-mode -s .travis/settings.xml -Prelease deploy
+    mvn --batch-mode --quiet -s .travis/settings.xml -Prelease deploy
 else
     # this is a regular build
-    mvn --batch-mode install
+    mvn --batch-mode --quiet install
 fi
