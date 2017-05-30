@@ -18,6 +18,7 @@ package org.dhatim.edisax.model.internal;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 public class Delimiters {
 
@@ -27,6 +28,7 @@ public class Delimiters {
     private String component;
     private String subComponent;
     private String escape;
+    private Pattern escapePattern;
     private String decimalSeparator;
     private volatile char[] segmentDelimiter;
     private boolean ignoreCRLF;
@@ -87,8 +89,13 @@ public class Delimiters {
         return escape;
     }
 
+    public Pattern getEscapePattern() {
+        return escapePattern;
+    }
+
     public Delimiters setEscape(String escape) {
         this.escape = escape;
+        this.escapePattern = escape == null ? null : Pattern.compile(escape + escape, Pattern.LITERAL);
         initDelimiterChars();
         return this;
     }
@@ -246,6 +253,7 @@ public class Delimiters {
         delimiters.component = component;
         delimiters.subComponent = subComponent;
         delimiters.escape = escape;
+        delimiters.escapePattern = escapePattern;
         delimiters.decimalSeparator = decimalSeparator;
         delimiters.segmentDelimiter = segmentDelimiter;
         delimiters.ignoreCRLF = ignoreCRLF;

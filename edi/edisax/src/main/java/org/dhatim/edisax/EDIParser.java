@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import javax.xml.XMLConstants;
 import org.dhatim.assertion.AssertArgument;
 import org.dhatim.edisax.model.EdifactModel;
 import org.dhatim.edisax.model.internal.Component;
@@ -56,8 +56,6 @@ import org.xml.sax.SAXNotRecognizedException;
 import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.AttributesImpl;
-
-import javax.xml.XMLConstants;
 
 /**
  * EDI Parser.
@@ -937,7 +935,8 @@ public class EDIParser implements XMLReader {
     private void writeToContentHandler(String messageVal) throws SAXException {
         if (edifactModel.getDelimiters() != null && edifactModel.getDelimiters().getEscape() != null) {
             String escapeDelimiter = edifactModel.getDelimiters().getEscape();
-            messageVal = messageVal.replace(escapeDelimiter+escapeDelimiter, escapeDelimiter);
+            Pattern escapePattern = edifactModel.getDelimiters().getEscapePattern();
+            messageVal = escapePattern.matcher(messageVal).replaceAll(Matcher.quoteReplacement(escapeDelimiter));
         }
         contentHandler.characters(messageVal.toCharArray(), 0, messageVal.length());
     }
