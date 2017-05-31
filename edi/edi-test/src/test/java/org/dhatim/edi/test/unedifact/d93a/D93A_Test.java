@@ -15,12 +15,11 @@
  */
 package org.dhatim.edi.test.unedifact.d93a;
 
-import org.junit.Test;
-import org.dhatim.edi.test.EdifactDirTestHarness;
-import org.xml.sax.SAXException;
-
 import java.io.File;
 import java.io.IOException;
+import org.dhatim.edi.test.EdifactDirTestHarness;
+import org.junit.Test;
+import org.xml.sax.SAXException;
 
 /**
  * @author <a href="mailto:tom.fennelly@gmail.com">tom.fennelly@gmail.com</a>
@@ -49,23 +48,4 @@ public class D93A_Test {
         d03bHarness.assertXMLOK(getClass().getResourceAsStream("ORDERS.edi"), getClass().getResourceAsStream("ORDERS.xml"));
     }
 
-    @Test
-    public void test_INVOIC_java() throws IOException {
-        d03bHarness.assertJavaReadWriteOK(getClass().getResourceAsStream("INVOIC.edi"));
-    }
-
-    @Test
-    public void test_INVOIC_xml() throws IOException, SAXException {
-        d03bHarness.assertXMLOK(getClass().getResourceAsStream("INVOIC.edi"), getClass().getResourceAsStream("INVOIC.xml"));
-    }
-
-    @Test
-    public void test_MULTIPLE_INVOIC_java() throws IOException {
-        d03bHarness.assertJavaReadWriteOK(getClass().getResourceAsStream("MULTIPLE-INVOIC.edi"));
-    }
-
-    @Test
-    public void test_MULTIPLE_INVOIC_xml() throws IOException, SAXException {
-        d03bHarness.assertXMLOK(getClass().getResourceAsStream("MULTIPLE-INVOIC.edi"), getClass().getResourceAsStream("MULTIPLE-INVOIC.XML"));
-    }
 }
