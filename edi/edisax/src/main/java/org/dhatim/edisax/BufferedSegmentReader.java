@@ -20,9 +20,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.StringReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Stack;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.dhatim.edisax.model.internal.Delimiters;
@@ -68,6 +69,8 @@ public class BufferedSegmentReader {
             reader = new InputStreamReader(underlyingByteStream, readEncoding);
         } else if(reader instanceof InputStreamReader) {
             readEncoding = Charset.forName(((InputStreamReader) reader).getEncoding());
+        } else if (reader instanceof StringReader) {
+            readEncoding = StandardCharsets.UTF_8;
         }
         this.currentDelimiters = rootDelimiters;
     }
@@ -99,13 +102,13 @@ public class BufferedSegmentReader {
      * @throws IOException Failed to skip already read characters.
      */
     public Charset changeEncoding(Charset encoding) throws IOException {
-        if(underlyingByteStream == null) {
-            throw new IllegalStateException("Unable to change stream read encoding to '" + encoding + "'.  BufferedSegmentReader does not have access to the underlying stream.");
-        }
-        if(readEncoding != null && encoding.equals(readEncoding)) {
+        if (readEncoding != null && encoding.equals(readEncoding)) {
             return readEncoding;
         }
-        if(!underlyingByteStream.markSupported()) {
+        if (underlyingByteStream == null) {
+            throw new IllegalStateException("Unable to change stream read encoding to '" + encoding + "'.  BufferedSegmentReader does not have access to the underlying stream.");
+        }
+        if (!underlyingByteStream.markSupported()) {
             logger.debug("Unable to to change stream read encoding on a stream that does not support 'mark'.");
             return readEncoding;
         }
