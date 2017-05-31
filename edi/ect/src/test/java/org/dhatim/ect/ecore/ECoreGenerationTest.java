@@ -97,8 +97,6 @@ public class ECoreGenerationTest {
         EClass root = (EClass) pkg.getEClassifier("CUSDEC");
         assertNotNull(root);
         assertEquals(22, root.getEStructuralFeatures().size());
-        assertNotNull(root.getEStructuralFeature("UNS1"));
-        assertNotNull(root.getEStructuralFeature("UNS2"));
         assertNull(root.getEStructuralFeature("UNS"));
     }
 
