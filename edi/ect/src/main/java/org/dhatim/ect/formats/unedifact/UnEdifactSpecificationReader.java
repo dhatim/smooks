@@ -15,29 +15,27 @@
 */
 package org.dhatim.ect.formats.unedifact;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.dhatim.ect.EdiConvertionTool;
-import org.dhatim.edisax.interchange.ControlBlockHandlerFactory;
-import org.dhatim.edisax.interchange.EdiDirectory;
-import org.dhatim.ect.EdiSpecificationReader;
-import org.dhatim.ect.EdiParseException;
-import org.dhatim.edisax.model.internal.Description;
-import org.dhatim.edisax.unedifact.handlers.r41.UNEdifact41ControlBlockHandlerFactory;
-import org.dhatim.edisax.util.EDIUtils;
-import org.dhatim.edisax.model.EdifactModel;
-import org.dhatim.edisax.model.internal.Edimap;
-import org.dhatim.edisax.model.internal.Field;
-import org.dhatim.edisax.model.internal.Segment;
-import org.dhatim.edisax.unedifact.UNEdifactInterchangeParser;
-import org.dhatim.util.ClassUtil;
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.dhatim.ect.EdiParseException;
+import org.dhatim.ect.EdiSpecificationReader;
+import org.dhatim.edisax.interchange.ControlBlockHandlerFactory;
+import org.dhatim.edisax.interchange.EdiDirectory;
+import org.dhatim.edisax.model.EdifactModel;
+import org.dhatim.edisax.model.internal.Description;
+import org.dhatim.edisax.model.internal.Edimap;
+import org.dhatim.edisax.model.internal.Field;
+import org.dhatim.edisax.model.internal.Segment;
+import org.dhatim.edisax.unedifact.UNEdifactInterchangeParser;
+import org.dhatim.edisax.unedifact.handlers.r41.UNEdifact41ControlBlockHandlerFactory;
+import org.dhatim.edisax.util.EDIUtils;
+import org.dhatim.util.ClassUtil;
 
 /**
  * UN/EDIFACT Specification Reader.
@@ -152,8 +150,6 @@ public class UnEdifactSpecificationReader implements EdiSpecificationReader {
                 }
 
                 Edimap model = getMappingModel(message);
-
-                EdiConvertionTool.removeDuplicateSegments(model.getSegments());
 
                 if(message.equals(commonMessageName)) {
                     if(commonModel == null) {

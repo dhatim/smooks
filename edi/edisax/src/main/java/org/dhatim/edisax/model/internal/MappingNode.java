@@ -25,8 +25,6 @@ public class MappingNode {
     private String namespace;
     private String documentation;
 
-    public static final String INDEXED_NODE_SEPARATOR = "_-_-";
-
     private String xmltag;
     private String nodeTypeRef;
     private MappingNode parent;
@@ -72,7 +70,7 @@ public class MappingNode {
     }
 
     public String getJavaName() throws IllegalNameException {
-        String javaName = xmltag.replace(INDEXED_NODE_SEPARATOR, "_");
+        String javaName = xmltag;
 
         if(name != null && name.trim().length() > 0) {
             javaName += "_" + EDIUtils.encodeClassName(name);

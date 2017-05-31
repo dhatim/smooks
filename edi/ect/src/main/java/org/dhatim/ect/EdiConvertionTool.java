@@ -28,24 +28,19 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.eclipse.emf.ecore.EPackage;
 import org.dhatim.archive.Archive;
 import org.dhatim.assertion.AssertArgument;
 import org.dhatim.ect.ecore.ECoreGenerator;
 import org.dhatim.ect.ecore.SchemaConverter;
 import org.dhatim.ect.formats.unedifact.UnEdifactSpecificationReader;
 import org.dhatim.edisax.interchange.EdiDirectory;
-import org.dhatim.edisax.model.internal.Component;
 import org.dhatim.edisax.model.internal.Description;
 import org.dhatim.edisax.model.internal.Edimap;
-import org.dhatim.edisax.model.internal.Field;
 import org.dhatim.edisax.model.internal.MappingNode;
-import org.dhatim.edisax.model.internal.Segment;
-import org.dhatim.edisax.model.internal.SegmentGroup;
 import org.dhatim.edisax.util.EDIUtils;
+import org.eclipse.emf.ecore.EPackage;
 
 /**
  * EDI Convertion Tool.
@@ -231,76 +226,6 @@ public class EdiConvertionTool {
         modelListBuilder.append("!" + modelDesc.getVersion());
         modelListBuilder.append("!" + modelDesc.getNamespace());
         modelListBuilder.append("\n");
-    }
-
-    public static void removeDuplicateSegments(SegmentGroup segmentGroup) {
-        if(segmentGroup instanceof Segment) {
-            removeDuplicateFields(((Segment)segmentGroup).getFields()); 
-        }
-
-        List<SegmentGroup> segments = segmentGroup.getSegments();
-        if(segments != null) {
-            removeDuplicateMappingNodes(segments);
-            for(SegmentGroup childSegmentGroup : segments) {
-                removeDuplicateSegments(childSegmentGroup);
-            }
-        }
-    }
-
-    private static void removeDuplicateFields(List<Field> fields) {
-        if(fields != null && !fields.isEmpty()) {
-            // Remove the duplicates from the fields themselves...
-            removeDuplicateMappingNodes(fields);
-
-            // Drill down into the field components...
-            for(Field field : fields) {
-                removeDuplicateComponents(field.getComponents());
-            }
-        }
-    }
-
-    private static void removeDuplicateComponents(List<Component> components) {
-        if(components != null && !components.isEmpty()) {
-            // Remove the duplicates from the components themselves...
-            removeDuplicateMappingNodes(components);
-
-            // Remove duplicate sub components from each component...
-            for(Component component : components) {
-                removeDuplicateMappingNodes(component.getSubComponents());
-            }
-        }
-    }
-
-    private static void removeDuplicateMappingNodes(List mappingNodes) {
-        if(mappingNodes == null || mappingNodes.isEmpty()) {
-            return;
-        }
-        
-        Set<String> nodeNames = getMappingNodeNames(mappingNodes);
-
-        if(nodeNames.size() < mappingNodes.size()) {
-            // There may be duplicates... find them and number them...
-            for(String nodeName : nodeNames) {
-                int nodeCount = getMappingNodeCount(mappingNodes, nodeName);
-                if(nodeCount > 1) {
-                    removeDuplicateMappingNodes(mappingNodes, nodeName);
-                }
-            }
-        }
-    }
-
-    private static void removeDuplicateMappingNodes(List mappingNodes, String nodeName) {
-        int tagIndex = 1;
-
-        for(Object mappingNodeObj : mappingNodes) {
-            MappingNode mappingNode = (MappingNode) mappingNodeObj;
-            String xmlTag = mappingNode.getXmltag();
-
-            if(xmlTag != null && xmlTag.equals(nodeName)) {
-                mappingNode.setXmltag(xmlTag + MappingNode.INDEXED_NODE_SEPARATOR + tagIndex);
-                tagIndex++;
-            }
-        }
     }
 
     private static Set<String> getMappingNodeNames(List mappingNodes) {
