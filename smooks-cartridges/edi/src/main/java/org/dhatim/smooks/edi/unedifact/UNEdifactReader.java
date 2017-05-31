@@ -16,7 +16,6 @@
 package org.dhatim.smooks.edi.unedifact;
 
 import java.io.IOException;
-
 import org.apache.commons.lang.StringUtils;
 import org.dhatim.cdr.annotation.AppContext;
 import org.dhatim.cdr.annotation.ConfigParam;
@@ -26,8 +25,8 @@ import org.dhatim.edisax.BufferedSegmentReader;
 import org.dhatim.edisax.interchange.ControlBlockHandlerFactory;
 import org.dhatim.edisax.interchange.InterchangeContext;
 import org.dhatim.edisax.model.internal.Delimiters;
-import org.dhatim.edisax.unedifact.UNEdifactInterchangeParser;
 import org.dhatim.edisax.registry.DefaultMappingsRegistry;
+import org.dhatim.edisax.unedifact.UNEdifactInterchangeParser;
 import org.dhatim.namespace.NamespaceDeclarationStack;
 import org.dhatim.xml.SmooksXMLReader;
 import org.xml.sax.InputSource;
@@ -69,7 +68,7 @@ public class UNEdifactReader extends UNEdifactInterchangeParser implements Smook
 		validate(validate);
 		// Default Mappings Registry is already set to LazyMappingsRegistry
 		// only if mappingModel is defined we should set another instance
-		if (!StringUtils.isEmpty(mappingModel)) {
+		if (!StringUtils.isEmpty(mappingModel) && !(registry instanceof DefaultMappingsRegistry)) {
 			setMappingsRegistry(new DefaultMappingsRegistry(mappingModel, applicationContext.getResourceLocator().getBaseURI()));
 		}
 		super.parse(unedifactInterchange);
