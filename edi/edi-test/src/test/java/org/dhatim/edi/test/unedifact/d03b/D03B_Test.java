@@ -15,16 +15,15 @@
 */
 package org.dhatim.edi.test.unedifact.d03b;
 
+import java.io.File;
+import java.io.IOException;
+import javax.xml.transform.stream.StreamSource;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.junit.Test;
 import org.dhatim.edi.test.EdifactDirTestHarness;
 import org.dhatim.io.StreamUtils;
 import org.dhatim.payload.JavaResult;
+import org.junit.Test;
 import org.xml.sax.SAXException;
-
-import javax.xml.transform.stream.StreamSource;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * @author <a href="mailto:tom.fennelly@gmail.com">tom.fennelly@gmail.com</a>
@@ -32,16 +31,6 @@ import java.io.IOException;
 public class D03B_Test {
 
     private static EdifactDirTestHarness d03bHarness = new EdifactDirTestHarness(new File("src/test/resources/d03b.zip"), "PAXLST");
-
-    @Test
-    public void test_PAXLST() throws IOException {
-        d03bHarness.assertJavaReadWriteOK(getClass().getResourceAsStream("PAXLST.edi"));
-    }
-
-    @Test
-    public void test_PAXLST_test_XML() throws IOException, SAXException {
-        d03bHarness.assertXMLOK(getClass().getResourceAsStream("PAXLST.edi"), getClass().getResourceAsStream("PAXLST.xml"));
-    }
 
     @Test
     public void test_PAXLST_test_fragment_split() throws IOException, SAXException {
