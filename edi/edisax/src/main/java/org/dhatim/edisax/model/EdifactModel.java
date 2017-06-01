@@ -26,7 +26,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.dhatim.assertion.AssertArgument;
 import org.dhatim.edisax.EDIConfigurationException;
 import org.dhatim.edisax.EDIParseException;
@@ -114,7 +113,10 @@ public class EdifactModel {
 		this.modelURI = modelURI;
 		this.importBaseURI = importBaseURI;
         try {
-            this.mappingConfig = StreamUtils.readStream(mappingModelStream);
+            String mappingConfig = StreamUtils.readStream(mappingModelStream);
+
+            // Remove numbered suffix
+            this.mappingConfig = mappingConfig.replaceAll("_-_-\\d+\">", "\">");
         } finally {
             mappingModelStream.close();
         }
