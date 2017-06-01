@@ -13,40 +13,41 @@
  See the GNU Lesser General Public License for more details:    
  http://www.gnu.org/licenses/lgpl.txt
  */
-
 package org.dhatim.resource;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.*;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.dhatim.io.StreamUtils;
-import org.dhatim.resource.ContainerResourceLocator;
 import org.dhatim.util.ClassUtil;
 
 /**
  * {@link java.net.URI} resource locator.
  * <p/>
- * Loads resources from a {@link java.net.URI} i.e. "file://", "http://", "classpath:/" etc. <p/> Note,
- * it adds support for referencing classpath based resources through a
- * {@link java.net.URI} e.g. "classpath:/org/dhatim/x/my-resource.xml" references
- * a "/org/dhatim/x/my-resource.xml" resource on the classpath.
+ * Loads resources from a {@link java.net.URI} i.e. "file://", "http://",
+ * "classpath:/" etc.
  * <p/>
- * This class resolves resources based on whether or not the requested resource {@link URI} has
- * a URI scheme specified.  If it has a scheme, it simply resolves the resource by creating a
- * {@link URL} instance from the URI and opening a stream on that URL.  If the URI doesn't have a scheme,
- * this class will attempt to resolve the resource against the local filesystem and classpath
- * (in that order).  In all cases (scheme or no scheme), the resource URI is first resolved
- * against base URI, with the resulting URI being the one that's used.
+ * Note, it adds support for referencing classpath based resources through a
+ * {@link java.net.URI} e.g. "classpath:/org/dhatim/x/my-resource.xml"
+ * references a "/org/dhatim/x/my-resource.xml" resource on the classpath.
  * <p/>
- * As already stated, all resource URIs are
- * {@link URI#resolve(String) resolved} against a "base URI".  This base URI can be set through the
- * {@link #setBaseURI(java.net.URI)} method, or via the System property "org.dhatim.resource.baseuri".
- * The default base URI is simply "./", which has no effect on the input URI when resolved against it.
+ * This class resolves resources based on whether or not the requested resource
+ * {@link URI} has a URI scheme specified. If it has a scheme, it simply
+ * resolves the resource by creating a {@link URL} instance from the URI and
+ * opening a stream on that URL. If the URI doesn't have a scheme, this class
+ * will attempt to resolve the resource against the local filesystem and
+ * classpath (in that order). In all cases (scheme or no scheme), the resource
+ * URI is first resolved against base URI, with the resulting URI being the one
+ * that's used.
+ * <p/>
+ * As already stated, all resource URIs are {@link URI#resolve(String) resolved}
+ * against a "base URI". This base URI can be set through the
+ * {@link #setBaseURI(java.net.URI)} method, or via the System property
+ * "org.dhatim.resource.baseuri". The default base URI is simply "./", which has
+ * no effect on the input URI when resolved against it.
  *
  * @author tfennelly
  */
@@ -76,7 +77,7 @@ public class URIResourceLocator implements ContainerResourceLocator {
         return getResource(defaultUri);
     }
 
-	public InputStream getResource(String uri) throws IllegalArgumentException, IOException {
+    public InputStream getResource(String uri) throws IllegalArgumentException, IOException {
         ResolvedURI resolvedURI = new ResolvedURI(uri, resolveURI(uri));
 
         return getResource(resolvedURI);
@@ -95,24 +96,24 @@ public class URIResourceLocator implements ContainerResourceLocator {
         StringBuilder errorBuilder = new StringBuilder();
 
         errorBuilder.append("\tFile System: " + fileUnresolved.getAbsolutePath() + "\n");
-        if(scheme == null) {
+        if (scheme == null) {
             fileResolved = new File(uri.resolvedURI.getPath());
             errorBuilder.append("\tFile System: " + fileResolved.getAbsolutePath() + "\n");
         }
-        
+
         boolean unresolvedExists = false;
         boolean resolvedExists = false;
         try {
-        	unresolvedExists = fileUnresolved.exists();
+            unresolvedExists = fileUnresolved.exists();
         } catch (Exception e) {
-        	// On GAE we will get a security exception
+            // On GAE we will get a security exception
         }
         try {
-        	resolvedExists = fileResolved.exists();
+            resolvedExists = fileResolved.exists();
         } catch (Exception e) {
-        	// On GAE we will get a security exception
+            // On GAE we will get a security exception
         }
-		if (unresolvedExists) {
+        if (unresolvedExists) {
             stream = new FileInputStream(fileUnresolved);
         } else if (fileResolved != null && resolvedExists) {
             stream = new FileInputStream(fileResolved);
@@ -120,8 +121,8 @@ public class URIResourceLocator implements ContainerResourceLocator {
             String path = uri.resolvedURI.getPath();
 
             if (path == null || path.trim().equals("")) {
-                throw new IllegalArgumentException("Unable to locate resource [" + uri +
-                        "].  Resource path not specified in URI.");
+                throw new IllegalArgumentException("Unable to locate resource [" + uri
+                        + "].  Resource path not specified in URI.");
             }
             if (path.charAt(0) != '/') {
                 path = "/" + path;
@@ -135,13 +136,13 @@ public class URIResourceLocator implements ContainerResourceLocator {
             errorBuilder.append("\tURL: " + url + "\n");
 
             if (isHttp) {
-                ((HttpURLConnection)connection).setInstanceFollowRedirects(false);
+                ((HttpURLConnection) connection).setInstanceFollowRedirects(false);
             }
 
             stream = connection.getInputStream();
 
             if (isHttp) {
-                int responseCode = ((HttpURLConnection)connection).getResponseCode();
+                int responseCode = ((HttpURLConnection) connection).getResponseCode();
                 if (responseCode < 200 || responseCode >= 300) {
                     if (stream != null) {
                         try {
@@ -158,7 +159,6 @@ public class URIResourceLocator implements ContainerResourceLocator {
         if (stream == null) {
             throw new IOException("Failed to access data stream for resource [" + uri.inputURI + "]. Tried (in order):\n" + errorBuilder);
         }
-
         return stream;
     }
 
@@ -182,11 +182,11 @@ public class URIResourceLocator implements ContainerResourceLocator {
             uri = uri.substring(1);
             return URI.create(uri);
         } else {
-	        uriObj = URI.create(uri);
-	        if (!uriObj.isAbsolute()) {
-	            // Resolve the supplied URI against the baseURI...
-	            uriObj = baseURI.resolve(uriObj);
-	        }
+            uriObj = URI.create(uri);
+            if (!uriObj.isAbsolute()) {
+                // Resolve the supplied URI against the baseURI...
+                uriObj = baseURI.resolve(uriObj);
+            }
         }
 
         return uriObj;
@@ -210,58 +210,63 @@ public class URIResourceLocator implements ContainerResourceLocator {
             this.baseURI = URI.create(baseURIString + '/');
         } else {
             this.baseURI = baseURI;
-		}
-	}
+        }
+    }
 
     /**
      * Get the base URI for this locator instance.
+     *
      * @return The base URI for the locator instance.
      */
     public URI getBaseURI() {
-    	return baseURI;
+        return baseURI;
     }
 
     /**
      * Get the system defined base URI.
      * <p/>
      * Defined by the system property {@link #BASE_URI_SYSKEY}.
-	 * @return System base URI.
-	 */
-	public static URI getSystemBaseURI() {
-		return URI.create(System.getProperty(BASE_URI_SYSKEY, "./"));
-	}
-    
+     *
+     * @return System base URI.
+     */
+    public static URI getSystemBaseURI() {
+        return URI.create(System.getProperty(BASE_URI_SYSKEY, "./"));
+    }
+
     /**
      * Extract the base URI from the supplied resource URI.
+     *
      * @param resourceURI The resource URI.
      * @return The base URI for the supplied resource URI.
      */
     public static URI extractBaseURI(String resourceURI) {
         URI uri = URI.create(resourceURI);
-		return extractBaseURI(uri);
+        return extractBaseURI(uri);
     }
 
     /**
      * Extract the base URI from the supplied resource URI.
+     *
      * @param resourceURI The resource URI.
      * @return The base URI for the supplied resource URI.
      */
-	public static URI extractBaseURI(URI resourceURI) {
-		File resFile = new File(resourceURI.getPath());
-        
+    public static URI extractBaseURI(URI resourceURI) {
+        File resFile = new File(resourceURI.getPath());
+
         try {
-        	File configFolder = resFile.getParentFile();
-        	if(configFolder != null) {
-        		return new URI(resourceURI.getScheme(), resourceURI.getUserInfo(), resourceURI.getHost(), resourceURI.getPort(), configFolder.getPath().replace('\\', '/'), resourceURI.getQuery(), resourceURI.getFragment());
-        	}
-		} catch (URISyntaxException e) {
-			logger.debug("Error extracting base URI.", e);
-		}
-    	
-		return DEFAULT_BASE_URI;
-	}
+            File configFolder = resFile.getParentFile();
+            if (configFolder != null) {
+                return new URI(resourceURI.getScheme(), resourceURI.getUserInfo(), resourceURI.getHost(), resourceURI.getPort(), configFolder.getPath().replace('\\', '/'), resourceURI.getQuery(), resourceURI.getFragment());
+            }
+        } catch (URISyntaxException e) {
+            logger.debug("Error extracting base URI.", e);
+        }
+
+        return DEFAULT_BASE_URI;
+    }
 
     private static class ResolvedURI {
+
         private String inputURI;
         private URI resolvedURI;
 

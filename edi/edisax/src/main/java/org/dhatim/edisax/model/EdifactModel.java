@@ -15,8 +15,10 @@
  */
 package org.dhatim.edisax.model;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.net.URI;
@@ -25,6 +27,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import org.dhatim.assertion.AssertArgument;
 import org.dhatim.edisax.EDIConfigurationException;
 import org.dhatim.edisax.EDIParseException;
@@ -53,7 +57,7 @@ public class EdifactModel {
     private final URI importBaseURI;
 
     private volatile Edimap edimap;
-    private Collection<EdifactModel> associateModels;
+    private Map<URI, EdifactModel> associateModels;
 
     /**
      * Public Constructor.
@@ -181,7 +185,7 @@ public class EdifactModel {
      * @param associateModels Associate models.
      */
     public void setAssociateModels(Collection<EdifactModel> associateModels) {
-        this.associateModels = associateModels;
+        this.associateModels = associateModels.stream().collect(Collectors.toMap(EdifactModel::getModelURI, Function.identity()));
     }
 
     /**
@@ -206,6 +210,7 @@ public class EdifactModel {
         EDIConfigDigester digester = new EDIConfigDigester(modelURI, importBaseURI);
 
         edimap = digester.digestEDIConfig(new StringReader(mappingConfig));
+
         description = edimap.getDescription();
         importFiles(tree.getRoot(), edimap, tree);
     }
@@ -242,8 +247,16 @@ public class EdifactModel {
             importedSegments = getImportedSegments(importUri);
             if (importedSegments == null) {
                 EDIConfigDigester digester = new EDIConfigDigester(importUri, URIResourceLocator.extractBaseURI(importUri));
+                StringBuilder sb = new StringBuilder();
+                try (InputStream is = new URIResourceLocator().getResource(importUri.toString());
+                        BufferedReader r = new BufferedReader(new InputStreamReader(is))) {
+                    String s;
+                    while ((s = r.readLine()) != null) {
+                        sb.append(s).append('\n');
+                    }
+                }
 
-                importedEdimap = digester.digestEDIConfig(new URIResourceLocator().getResource(importUri.toString()));
+                importedEdimap = digester.digestEDIConfig(new StringReader(patchMappingConf(sb.toString())));
                 importFiles(child, importedEdimap, tree);
                 importedSegments = createImportMap(importedEdimap);
             }
@@ -256,15 +269,8 @@ public class EdifactModel {
     }
 
     private Map<String, Segment> getImportedSegments(URI importUri) {
-        if (associateModels != null) {
-            for (EdifactModel model : associateModels) {
-                if (model.getModelURI().equals(importUri)) {
-                    return createImportMap(model.getEdimap());
-                }
-            }
-        }
-
-        return null;
+        EdifactModel model = associateModels == null ? null : associateModels.get(importUri);
+        return model == null ? null : createImportMap(model.getEdimap());
     }
 
     private void applyImportOnSegments(List<SegmentGroup> segmentGroup, Import imp, Map<String, Segment> importedSegments) throws EDIParseException {
