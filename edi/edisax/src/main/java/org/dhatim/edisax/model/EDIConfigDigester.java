@@ -23,10 +23,8 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javax.xml.XMLConstants;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.dhatim.assertion.AssertArgument;
 import org.dhatim.edisax.EDIConfigurationException;
 import org.dhatim.edisax.EDITypeEnum;
@@ -86,7 +84,7 @@ public class EDIConfigDigester {
      * @param importBaseURI The base URI for loading imports.
 	 */
     public EDIConfigDigester(URI modelURI, URI importBaseURI) {
-		AssertArgument.isNotNull(importBaseURI, "importBaseURI");
+        AssertArgument.isNotNull(importBaseURI, "importBaseURI");
 		this.modelURI = modelURI;
     	importLocator = new URIResourceLocator();
     	importLocator.setBaseURI(importBaseURI);

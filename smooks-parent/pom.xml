@@ -6,7 +6,7 @@
 
     <groupId>org.dhatim</groupId>
     <artifactId>smooks-parent</artifactId>
-    <version>1.7.1-SNAPSHOT</version>
+    <version>1.7.5-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Milyn :: Smooks</name>
     <url>http://www.smooks.org</url>

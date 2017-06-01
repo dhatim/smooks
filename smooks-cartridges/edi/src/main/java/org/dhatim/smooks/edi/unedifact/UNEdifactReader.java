@@ -34,60 +34,60 @@ import org.xml.sax.SAXException;
 
 /**
  * UN/EDIFACT Smooks reader.
- * 
+ *
  * @author <a href="mailto:tom.fennelly@gmail.com">tom.fennelly@gmail.com</a>
  */
 public class UNEdifactReader extends UNEdifactInterchangeParser implements SmooksXMLReader {
 
-	@ConfigParam
-	private String mappingModel;
+    @ConfigParam
+    private String mappingModel;
 
-	@ConfigParam(defaultVal = "false")
-	private boolean validate;
+    @ConfigParam(defaultVal = "false")
+    private boolean validate;
 
-	@ConfigParam(defaultVal = "false")
-	private boolean ignoreNewLines;
+    @ConfigParam(defaultVal = "false")
+    private boolean ignoreNewLines;
 
     @ConfigParam(defaultVal = "true")
     private boolean ignoreEmptyNodes;
 
-	@AppContext
-	private ApplicationContext applicationContext;
+    @AppContext
+    private ApplicationContext applicationContext;
 
-	private ExecutionContext executionContext;
+    private ExecutionContext executionContext;
 
-	public void setExecutionContext(ExecutionContext executionContext) {
-		this.executionContext = executionContext;
-	}
+    public void setExecutionContext(ExecutionContext executionContext) {
+        this.executionContext = executionContext;
+    }
 
-	@Override
-	public void parse(InputSource unedifactInterchange) throws IOException,
-			SAXException {
-		ignoreNewLines(ignoreNewLines);
+    @Override
+    public void parse(InputSource unedifactInterchange) throws IOException,
+            SAXException {
+        ignoreNewLines(ignoreNewLines);
         ignoreEmptyNodes(ignoreEmptyNodes);
-		validate(validate);
-		// Default Mappings Registry is already set to LazyMappingsRegistry
-		// only if mappingModel is defined we should set another instance
-		if (!StringUtils.isEmpty(mappingModel) && !(registry instanceof DefaultMappingsRegistry)) {
-			setMappingsRegistry(new DefaultMappingsRegistry(mappingModel, applicationContext.getResourceLocator().getBaseURI()));
-		}
-		super.parse(unedifactInterchange);
-	}
+        validate(validate);
+        // Default Mappings Registry is already set to LazyMappingsRegistry
+        // only if mappingModel is defined we should set another instance
+        if (!StringUtils.isEmpty(mappingModel) && !(registry instanceof DefaultMappingsRegistry)) {
+            setMappingsRegistry(new DefaultMappingsRegistry(mappingModel, applicationContext.getResourceLocator().getBaseURI()));
+        }
+        super.parse(unedifactInterchange);
+    }
 
-	@Override
-	protected InterchangeContext createInterchangeContext(
+    @Override
+    protected InterchangeContext createInterchangeContext(
             BufferedSegmentReader segmentReader, boolean validate,
             ControlBlockHandlerFactory controlBlockHandlerFactory, NamespaceDeclarationStack namespaceDeclarationStack) {
 
-		return new InterchangeContext(segmentReader, registry, getContentHandler(), getFeatures(), controlBlockHandlerFactory, namespaceDeclarationStack, validate) {
-			@Override
-			public void pushDelimiters(Delimiters delimiters) {
-				super.pushDelimiters(delimiters);
-				// Bind the delimiters into the bean context. Will then get
-				// auto-wired into interchanges...
-				executionContext.getBeanContext().addBean(
-						"interchangeDelimiters", delimiters);
-			}
-		};
-	}
+        return new InterchangeContext(segmentReader, registry, getContentHandler(), getFeatures(), controlBlockHandlerFactory, namespaceDeclarationStack, validate) {
+            @Override
+            public void pushDelimiters(Delimiters delimiters) {
+                super.pushDelimiters(delimiters);
+                // Bind the delimiters into the bean context. Will then get
+                // auto-wired into interchanges...
+                executionContext.getBeanContext().addBean(
+                        "interchangeDelimiters", delimiters);
+            }
+        };
+    }
 }
